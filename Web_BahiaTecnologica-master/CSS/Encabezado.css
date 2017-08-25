@@ -1,0 +1,19 @@
+<head>
+<style>
+     h1{
+         color: #25b125;
+         opacity: 0.5;
+         font-size: 4em;
+         font-weight: bold;
+         text-align: center;
+     }
+     h2{
+         color: red;
+         font-size: em;
+         font-weight: bold;
+         text-align: center;
+         text-align-last: justify;
+         text-justify: distribute; 
+     }
+</style>
+</head>
