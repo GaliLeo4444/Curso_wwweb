@@ -1,19 +1,35 @@
-<head>
-<style>
-     h1{
-         color: #25b125;
-         opacity: 0.5;
-         font-size: 4em;
-         font-weight: bold;
-         text-align: center;
+.ClaseBody{
+        background-image: "images/Fondo.jpg";
+}
+
+.LetraComunacha{
+   color: #3F51B5;
+   font-size: em;
+   font-weight: bold;
+   text-align: left;
+}
+
+
+h1{
+   color: #25b125;
+   opacity: 0.5;
+   font-size: 4em;
+   font-weight: bold;
+   text-align: center;
+}
+
+h2{
+   color: red;
+   font-size: 2em;
+   font-weight: bold;
+   text-align: center;
+   text-align-last: justify;
+   text-justify: distribute; 
+}
+
+
+@media only screen and (max-width: 500px) {
+     body {
+           background-color: lightyellow;
      }
-     h2{
-         color: red;
-         font-size: em;
-         font-weight: bold;
-         text-align: center;
-         text-align-last: justify;
-         text-justify: distribute; 
-     }
-</style>
-</head>
+}
