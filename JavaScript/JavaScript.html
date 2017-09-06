@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Probando JavaScript</h2>
+
+<script>
+
+function Producto (p1, p2) {
+    return (p1 * p2);
+}
+
+function Mayor (num1, num2) {
+    if (num1 > num2) {
+        return (num1);
+    }
+    else {
+        if (num1 < num2) {
+            return (num2);
+        }
+        else {
+            window.alert("Son iguales");
+            return (num2);
+        }
+    }
+}
+
+function Concatenar (c1, c2) {
+    return (concat(c1 + c2));
+}
+
+function PrecioConDescuento (monto, tipo_pago) {
+    if (monto < 200) {
+            return (monto);
+        }
+    else {
+        if (monto < 400) {
+            switch (tipo_pago) {
+                case "C":       //Crédito
+                         return (monto * 0.90);
+                    break;
+                case "D":   //Débito
+                         return (monto * 0.80);
+                    break;
+                case "E":       //Efectivo
+                         return (monto * 0.70);
+                    break;
+            }
+        }
+        else {
+            return (monto * 0.60);
+        }
+    }
+}
+
+
+function DibujarArbol (altura) {
+    var i, j;
+    var text = "";
+    for (i=0; i<altura; i++) {
+        for (j=0; j<=i; j++) {
+            text += "*";
+        }
+        text += "<br>";
+    }
+    return (text);
+}
+
+function CalcularPromiedo () {
+    var cant = Number(prompt("Ingrese el tamanio del arreglo"));
+    var valores = prompt("Ingrese los " + cant + " valores del arreglo separados por espacio");
+    valores = valores.split(" ");
+    var i;
+    var promiedo = 0;
+    for (i=0; i<cant; i++) {
+        promiedo += Number(valores[i]);
+    }
+    return (promiedo/cant);
+}
+
+</script>
+
+<button type="button" onclick="document.getElementById('demo').innerHTML = CalcularPromiedo()">Prueba</button>
+
+<p id="demo">Promiedo
+<br>
+<br>
+</p>
+
+</body>
+</html> 
