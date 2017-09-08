@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload="Preguntar()">
 
 <h2>Probando JavaScript</h2>
 
@@ -78,6 +78,76 @@ function CalcularPromiedo () {
     return (promiedo/cant);
 }
 
+function ComprobarNombre () {
+    var x = document.getElementById("Form1").elements[0];
+    if (x.value == "") {
+        return (0);
+    }
+    else {
+        return (1);
+    }
+}
+
+function ComprobarEdad () {
+    var x = document.getElementById("Form1").elements[2];
+    if (x.value < 18) {
+        return (0);
+    }
+    else {
+        return (1);
+    }
+}
+
+function HabilitarLista () {
+    var x = document.getElementById("Genero");
+    if (x.options[x.selectedIndex].text == "Hombre") {
+        document.getElementById("Masculino").disabled=false;
+    }
+    else {
+        document.getElementById("Femenino").disabled=false;
+    }
+}
+
+function ConfirmarLink () {
+    if (window.confirm("Está seguro que quiere abandonar la página")) {
+        location.assign("https://www.facebook.com");
+    }
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function Preguntar () {
+    var usuario = getCookie("username");
+    if (usuario == "") {     //Usuario nuevo
+        usuario = prompt("Quién carajo sos????");
+        setCookie("username", usuario, 10);
+    }
+    else {
+        alert("HOLAAAA  " + usuario);
+    }
+}
+
 </script>
 
 <button type="button" onclick="document.getElementById('demo').innerHTML = CalcularPromiedo()">Prueba</button>
@@ -86,6 +156,61 @@ function CalcularPromiedo () {
 <br>
 <br>
 </p>
+
+
+<form id="Form1" class="form-horizontal" action="" method="post">
+            <div class="form-group">
+               <label class="control-label col-sm-2" for="Nombre">Nombre:</label>
+               <div class="col-sm-10">
+                   <input id="Nombre" class="form-control" type="name" name="name">
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="control-label col-sm-2" for="Email">Email:</label>
+               <div class="col-sm-10">
+                   <input id="Email" class="form-control" type="email" name="Email" placeholder="ejemplo@servermail.com">
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="control-label col-sm-2" for="Edad">Edad:</label>
+               <div class="col-sm-10">
+                   <input id="Edad" class="form-control" type="name" name="edad">
+               </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <select id="Genero" name="Genero" onclick="document.getElementById('PruebaForm').innerHTML = HabilitarLista()">
+                    <option id="Gen" value="Gen">Genero</option>
+                    <option id="Hombre" value="Hombre">Hombre</option>
+                    <option id="Mujer" value="Mujer">Mujer</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <select id="Masculino" name="Masculino" disabled=true>
+                    <option id="Empleado" value="Empleado">Empleado</option>
+                    <option id="Desempleado" value="Desempleado">Desempleado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select id="Femenino" name="Femenino" disabled=true>
+                    <option id="Empleada" value="Empleada">Empleada</option>
+                    <option id="Ama de Casa" value="Ama de Casa">Ama de Casa</option>
+                </select>
+            </div>
+            <button id="Enviar" type="button" onclick="document.getElementById('PruebaForm').innerHTML = HabilitarLista()" class="btn btn-success">Enviar</button>
+</form>
+
+<br>
+<br>
+<p id="PruebaForm">
+<br>
+<br>
+</p>
+<p onclick="document.getElementById('PruebaForm').innerHTML = ConfirmarLink()">
+  Face
+</p>
+
 
 </body>
 </html> 
