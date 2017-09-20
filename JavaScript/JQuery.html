@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    $("#div1").mouseenter(function(){
+        $("#div1").fadeOut(function(){;
+        alert("Se va....");
+    })});
+    $("#imagen").mouseenter(function(){
+        $("#imagen").fadeOut(4000, function(){;
+        $("#imagen").append("<p>Se va se va....</p>");
+    })});
+    $("#div3").mouseenter(function(){
+        $("#div3").fadeOut(2000, function(){;
+        $("#amostrar").css("display","block");
+    })});
+    $("#div4").mouseenter(function(){
+        $("#div4").fadeOut(4000);
+    });
+    $("#menu").click(function(){
+        $("#panel").slideToggle("slow")});
+        
+    $("#ver").click(function(){
+        $("#panel").slideDown("slow");
+    });
+});
+
+</script>
+
+<style> 
+#panel, #menu {
+    padding: 10px;
+    text-align: center;
+    background-color: yellow;
+    border: solid 1px green;
+}
+
+#panel {
+    padding: 40px;
+    display: none;
+}
+</style>
+
+</head>
+
+
+<body>
+<h1>Probando JQuery</h1>
+<br>
+<br>
+<br>
+<br>
+<div style="width:80px;height:80px">
+<div id="div1" style="width:80px;height:80px;background-color:red;"></div></div><br>
+<div><img id="imagen" alt="TIerraaa" src="PlanetaTierra.jpg"></div>
+<div style="width:200px;height:80px">
+<div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+<p id="amostrar" style="display:none">Se fué la imagen</p>
+</div><br>
+<div id="div4" style="width:80px;height:80px;background-color:yellow;"></div><br>
+
+<br><br>
+<button id="ver">Ver mas</button>
+<div id="menu">Acerca De</div>
+<div id="panel">Hello world!</div>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
