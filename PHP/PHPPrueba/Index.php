@@ -7,19 +7,34 @@
     <body>
         
         <h1>Formulario de prueba</h1><br>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            Nombre
-            <input type="text" name="nombre"><br>
-            Correo:
-            <input type="text" name="correo"><br>
-            Genero:<br>
-            <input type="radio" name="genero" value="male" > Male<br>
-            <input type="radio" name="genero" value="female"> Female<br>
-            <input type="radio" name="genero" value="other"> Other<br>
+        <form method="post" action="generacion_datos.php">
+            N° Documento
+            <input type="text" name="documento"><br>
+            Fecha nacimiento (dd/mm/aaaa):
+            <input type="text" name="fecha"><br>
+            Nacionalidad:<br>
+            <input type="radio" name="nacionalidad" value="Argento" > Argento<br>
+            <input type="radio" name="nacionalidad" value="otra"> otra<br>
             <input type="submit" value="Enviar">
         </form>
         <br>
         <br>
+        <h2>Leyendo archivo de texto....</h2><br>
+        <i><?php
+            $archivo = fopen("archivo.txt", "w");
+            $texto = "Líne1\n";
+            fwrite($archivo, $texto);
+            $texto = "Líne2\n";
+            fwrite($archivo, $texto);
+            $texto = "Líne3\n";
+            fwrite($archivo, $texto);
+            fclose($archivo);
+            
+            $archivo = fopen("archivo.txt", "r");
+            echo fread($archivo,filesize("archivo.txt"));
+            fclose($archivo);
+        ?></i>
+        
         
         <?php
             $name = $email = $gen = "";
